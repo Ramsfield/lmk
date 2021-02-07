@@ -2,8 +2,31 @@
 
 #Icons Live in /usr/share/icons/gnome/32x32
 
+usage() {
+  printf "Usage: $0 [-h] [-o <String>] [-t <Integer>] [-i <String>]\n";
+  exit 0;
+}
+
 ICON=face-smile
 MSG="Task Complete"
 TIMEOUT=3000
+
+#Parse options
+while getopts "h:o:t:i:" arg; do
+  case $arg in
+    o)
+      MSG=${OPTARG}
+      ;;
+    t)
+      TIMEOUT=${OPTARG}
+      ;;
+    i)
+      ICON=${OPTARG}
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
 
 notify-send -i $ICON -t $TIMEOUT $MSG
