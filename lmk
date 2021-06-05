@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Icons Live in /usr/share/icons/gnome/32x32
+#Icons may live in other places too
 
 usage() {
   printf "Usage: $0 [-h] [-o <String>] [-t <Integer>] [-i <String>]\n";
